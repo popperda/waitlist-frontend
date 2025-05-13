@@ -8,7 +8,7 @@ function App() {
     const [email, setEmail] = useState("");
     const [count, setCount] = useState(0);
     useEffect(() => {
-        fetch('http://localhost:5000/users/count')
+        fetch('https://waitlist-backend-pied.vercel.app/users/count')
         .then(res => res.json())
         .then(data => {
             setCount(data.count);
@@ -22,7 +22,7 @@ function App() {
     const handleOnSubmit = async (e) => {
         e.preventDefault();
         let result = await fetch(
-        'http://localhost:5000/register', {
+        'https://waitlist-backend-pied.vercel.app/register', {
             method: "post",
             body: JSON.stringify({ name, email }),
             headers: {
