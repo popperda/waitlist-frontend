@@ -75,6 +75,8 @@ function App() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [count, setCount] = useState(0);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
     useEffect(() => {
         fetch('https://waitlist-backend-pied.vercel.app/users/count')
         .then(res => res.json())
@@ -87,6 +89,13 @@ function App() {
         
     }
     , []);
+
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     const handleOnSubmit = async (e) => {
         e.preventDefault();
         let result = await fetch(
@@ -259,7 +268,19 @@ function App() {
             
 
             <Fade duration={2000} style={{ marginBottom: "5%", marginTop: "5%" }}>
-            <h1 className= "jump-in" style={{ color: "white", fontSize: "2.2rem", fontFamily: "Manrope",}}> form unforgettable memories. </h1>
+            <h1
+              className="jump-in"
+              style={{
+                color: "white",
+                fontSize: "2.2rem",
+                fontFamily: "Manrope",
+                textAlign: "center",
+                width: "100%",
+                margin: 0,
+              }}
+            >
+              form unforgettable memories.
+            </h1>
             </Fade>
         </div>
         <div style={{
@@ -282,7 +303,7 @@ function App() {
             <div
               style={{
                 display: "flex",
-                flexDirection: "row",
+                flexDirection: windowWidth < 700 ? "column" : "row",
                 justifyContent: "space-between",
                 alignItems: "center",
                 gap: "0rem",
@@ -292,16 +313,16 @@ function App() {
                 fontFamily: "McLaren"
               }}
             >
-              <div style={{ flex: "2", background: "#e4d59b", padding: "1rem", borderRadius: "8px", margin: "1%", height: "20%" }}>
+              <div style={{ flex: "2", background: "#e4d59b", padding: "1rem", borderRadius: "8px", margin: "1%", height: "25vh" , fontSize: "1.6vw", width: windowWidth < 1000 ? "80%" : "auto", textAlign:"center"}}>
                 1. Set up your account & profile through us with a simple survey
               </div>
-              <div style={{ flex: "2", background: "#bac4a1", padding: "1rem", borderRadius: "8px", margin: "1%", height:"20%" }}>
+              <div style={{ flex: "2", background: "#bac4a1", padding: "1rem", borderRadius: "8px", margin: "1%", height: "25vh" , fontSize: "1.6vw", width: windowWidth < 1000 ? "80%" : "auto", textAlign:"center"}}>
                 2. Let us handle the matching to find you your people
               </div>
-              <div style={{ flex: "2", background: "#2d5c4b", color: "#fff", padding: "1rem", borderRadius: "8px", margin: "1%", height:"20%" }}>
+              <div style={{ flex: "2", background: "#2d5c4b", color: "#fff", padding: "1rem", borderRadius: "8px", margin: "1%", height: "25vh" , fontSize: "1.6vw", width: windowWidth < 1000 ? "80%" : "auto", textAlign:"center"}}>
                 3. Get sent an invite to a groupchat / contacts and chat
               </div>
-              <div style={{ flex: "2", background: "#073b0e", color: "#fff", padding: "1rem", borderRadius: "8px", margin: "1%", height:"20%" }}>
+              <div style={{ flex: "2", background: "#073b0e", color: "#fff", padding: "1rem", borderRadius: "8px", margin: "1%", height: "25vh" , fontSize: "1.6vw", width: windowWidth < 1000 ? "80%" : "auto", textAlign:"center"}}>
                 4. Have fun, and enjoy your adventure! It's as easy as that
               </div>
             </div>
@@ -335,9 +356,30 @@ function App() {
                 <input type="email" placeholder="email" style={{width:"80%", margin: "auto", marginTop: "2%", padding: "5px 10px", borderRadius: "1px", fontFamily: 'Manrope, Inter, Arial, sans-serif'}}
                 value={email} onChange={(e) => setEmail(e.target.value)} />
                 
-                <button type="submit" className="my-button" 
-                style = {{ marginLeft: "1%", background: "#e4d59b", fontSize: "16px",color: "#073b0e" , border: "none", padding: "5px 10px", borderRadius: "1px", fontFamily: "Manrope, Inter, Arial, sans-serif", cursor: "pointer", width: "20%", margin: "auto", marginTop: "4%", overflow: "hidden"}}
-                onClick={handleOnSubmit}>submit</button>
+                <button
+                  type="submit"
+                  className="my-button"
+                  style={{
+                    background: "#e4d59b",
+                    color: "#073b0e",
+                    border: "none",
+                    padding: window.innerWidth < 600 ? "14px 0" : "14px 0",
+                    fontFamily: "Manrope, Inter, Arial, sans-serif",
+                    fontSize: window.innerWidth < 600 ? "16px" : "18px",
+                    fontWeight: 600,
+                    cursor: "pointer",
+                    width: window.innerWidth < 1000 ? "80%" : "80%",
+                    margin: "24px auto 0 auto",
+                    display: "block",
+                    maxWidth: "400px",
+                    minHeight: "24px",
+                    boxShadow: "0 2px 8px #0002",
+                    boxSizing: "border-box"
+                  }}
+                  onClick={handleOnSubmit}
+                >
+                  submit
+                </button>
             </form>
             <div style={{ margin: "auto", textAlign: "center", marginTop: "2%" }}>
             <p className="join" style={{ color: "#fff", fontFamily: "McLaren, Inter, Arial, sans-serif", fontWeight: 500, marginBottom: "40%" }}>join {count} others in your travels!</p>
