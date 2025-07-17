@@ -350,7 +350,7 @@ function App() {
                 backgroundColor: "rgb(14, 31, 17)"}}>
             <h1 style = {{fontWeight: "bold", textAlign:"center", color: "#2d5c4b", marginTop: "5%", fontFamily: "Manrope, Inter, Arial, sans-serif", textShadow: "2px 2px 12px #000"}}>Join the Waitlist</h1> 
             <h2 style = {{fontFamily: "Manrope, Inter, Arial, sans-serif",  textAlign:"center", color: "rgb(241, 241, 241)", marginTop: "0%"}}>Sign up below</h2>
-            <form action="" style={{ display: "flex", flexDirection: "column", width: "40%",  marginTop: "1%" }}>
+            <form action="" style={{ display: "flex", flexDirection: "column",  width: windowWidth < 1000 ? "90%":"40%",  marginTop: "1%" }}>
                 <input type="text" placeholder="name" style={{ width:"80%", margin: "auto", marginTop: "2%", padding: "5px 10px", borderRadius: "1px", fontFamily: 'Manrope, Inter, Arial, sans-serif'}}
                 value={name} onChange={(e) => setName(e.target.value)} />
                 <input type="email" placeholder="email" style={{width:"80%", margin: "auto", marginTop: "2%", padding: "5px 10px", borderRadius: "1px", fontFamily: 'Manrope, Inter, Arial, sans-serif'}}
