@@ -253,13 +253,17 @@ function App() {
             <h1 className= "jump-in" style={{ color: "white", fontSize: "2.2rem", fontFamily: "Manrope" }}> meet people. </h1>
             </Fade>
   
-            <Fade duration={2000} style={{marginTop:"5%"}}>
-            <h1 className= "jump-in" style={{ color: "white", fontSize: "2.2rem", fontFamily: "Manrope"}}> find trails. </h1>
+            <Fade duration={2000}>
+            <h1 className= "jump-in" style={{ color: "white", fontSize: "2.2rem", fontFamily: "Manrope" }}> find trails. </h1>
             </Fade>
-            
+            <div style={{ height: "20vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <span style={{ color: "#bac4a1", fontSize: "1.5rem", fontFamily: "Manrope", marginRight: "1rem" }}>Ready to</span>
+                    <AnimatedWords />
+                    <span style={{ color: "#bac4a1", fontSize: "1.5rem", fontFamily: "McLaren" , marginLeft: "0.5rem"}}>?</span>
+            </div>
 
-            <Fade duration={2000} style={{ marginBottom: "5%", marginTop: "5%" }}>
-            <h1 className= "jump-in" style={{ color: "white", fontSize: "2.2rem", fontFamily: "Manrope",}}> form unforgettable memories. </h1>
+            <Fade   style={{ marginBottom: "5%" }}>
+            <h1 className= "jump-in" style={{ color: "white", fontSize: "2.2rem", fontFamily: "Manrope" }}> form unforgettable memories. </h1>
             </Fade>
         </div>
         <div style={{
@@ -288,7 +292,7 @@ function App() {
                 gap: "0rem",
                 width: "100%",
                 margin: "1rem 0",
-                marginBottom: "1%",
+                marginBottom: "10%",
                 fontFamily: "McLaren"
               }}
             >
@@ -304,11 +308,6 @@ function App() {
               <div style={{ flex: "2", background: "#073b0e", color: "#fff", padding: "1rem", borderRadius: "8px", margin: "1%", height:"20%" }}>
                 4. Have fun, and enjoy your adventure! It's as easy as that
               </div>
-            </div>
-            <div style={{ height: "20vh", display: "flex", alignItems: "center", justifyContent: "center" , marginBottom: "5%"}}>
-            <span style={{ color: "#bac4a1", fontSize: "1.5rem", fontFamily: "Manrope", marginRight: "1rem" }}>Ready to</span>
-                    <AnimatedWords />
-                    <span style={{ color: "#bac4a1", fontSize: "1.5rem", fontFamily: "McLaren" , marginLeft: "0.5rem"}}>?</span>
             </div>
         
         </div>
